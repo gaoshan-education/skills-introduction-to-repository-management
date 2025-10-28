@@ -8,19 +8,27 @@
 
 ### 1. 访问标签管理页面 / Navigate to Labels Page
 
-点击此链接直接访问（请替换为你的实际仓库地址）：
-*Click this link to access directly (replace with your actual repository URL):*
-
-```
-https://github.com/gaoshan-education/skills-introduction-to-repository-management/labels
-```
-
-或者：
-*Or:*
+**方法 1：通过仓库界面 / Method 1: Through Repository UI**
 
 1. 进入仓库主页 / Go to repository home
 2. 点击 **"Issues"** 标签 / Click **"Issues"** tab
 3. 点击 **"Labels"** 按钮 / Click **"Labels"** button
+
+**方法 2：直接访问 URL / Method 2: Direct URL Access**
+
+访问以下格式的 URL（替换为你的仓库信息）：
+*Visit URL in the following format (replace with your repository info):*
+
+```
+https://github.com/YOUR-USERNAME/YOUR-REPOSITORY/labels
+```
+
+例如本仓库：
+*For example, this repository:*
+
+```
+https://github.com/gaoshan-education/skills-introduction-to-repository-management/labels
+```
 
 ### 2. 创建推荐的标签 / Create Recommended Labels
 
@@ -89,23 +97,88 @@ https://github.com/gaoshan-education/skills-introduction-to-repository-managemen
 
 ## 🎨 批量创建标签 / Batch Create Labels
 
-如果你想快速创建所有标签，可以使用 GitHub CLI 或 API。以下是使用 GitHub CLI 的示例：
+如果你想快速创建所有标签，可以使用 GitHub CLI 或 API。以下是使用 GitHub CLI 的完整示例：
 
-*If you want to quickly create all labels, you can use GitHub CLI or API. Here's an example using GitHub CLI:*
+*If you want to quickly create all labels, you can use GitHub CLI or API. Here's a complete example using GitHub CLI:*
+
+### 准备工作 / Preparation
 
 ```bash
-# 安装 GitHub CLI / Install GitHub CLI
-# https://cli.github.com/
+# 1. 安装 GitHub CLI / Install GitHub CLI
+# macOS: brew install gh
+# Windows: choco install gh
+# Linux: See https://cli.github.com/
 
-# 登录 / Login
+# 2. 登录 / Login
 gh auth login
 
-# 创建标签 / Create labels
-gh label create "club:art" --color "FF69B4" --description "艺术俱乐部相关功能"
-gh label create "club:chess" --color "8B4513" --description "国际象棋俱乐部功能"
-gh label create "priority:critical" --color "FF0000" --description "关键问题，需立即处理"
-# ... 继续添加其他标签 / Continue adding other labels
+# 3. 进入你的仓库目录 / Navigate to your repository directory
+cd /path/to/your/repository
 ```
+
+### 创建所有标签的脚本 / Script to Create All Labels
+
+将以下内容保存为 `create-labels.sh` 或直接在终端执行：
+*Save the following as `create-labels.sh` or execute directly in terminal:*
+
+```bash
+#!/bin/bash
+
+# 俱乐部分类 / Club Categories
+gh label create "club:art" --color "FF69B4" --description "艺术俱乐部相关功能 / Art Club features"
+gh label create "club:chess" --color "8B4513" --description "国际象棋俱乐部功能 / Chess Club features"
+gh label create "club:sports" --color "FF6347" --description "体育活动相关 / Sports activities"
+gh label create "club:music" --color "9370DB" --description "音乐俱乐部功能 / Music Club features"
+gh label create "club:general" --color "4169E1" --description "影响所有俱乐部的功能 / Features affecting all clubs"
+
+# 优先级 / Priority
+gh label create "priority:critical" --color "FF0000" --description "关键问题，需立即处理 / Critical issues, needs immediate attention"
+gh label create "priority:high" --color "FF6B6B" --description "高优先级 / High priority"
+gh label create "priority:medium" --color "FFD93D" --description "中等优先级 / Medium priority"
+gh label create "priority:low" --color "95E1D3" --description "低优先级 / Low priority"
+
+# 问题类型 / Issue Type
+gh label create "type:bug" --color "DC143C" --description "软件缺陷 / Software bugs"
+gh label create "type:feature" --color "32CD32" --description "新功能请求 / New feature request"
+gh label create "type:enhancement" --color "87CEEB" --description "改进现有功能 / Improve existing features"
+gh label create "type:documentation" --color "4682B4" --description "文档相关 / Documentation related"
+gh label create "type:refactor" --color "9370DB" --description "代码重构 / Code refactoring"
+gh label create "type:security" --color "FF4500" --description "安全问题 / Security issues"
+
+# 状态 / Status
+gh label create "status:todo" --color "D3D3D3" --description "待处理 / To be done"
+gh label create "status:in-progress" --color "FFA500" --description "进行中 / In progress"
+gh label create "status:review" --color "9370DB" --description "需要审查 / Needs review"
+gh label create "status:blocked" --color "DC143C" --description "被阻塞 / Blocked"
+gh label create "status:ready" --color "32CD32" --description "准备就绪 / Ready to deploy"
+
+# 学期/活动周期 / Semester/Activity Cycle
+gh label create "semester:fall" --color "D2691E" --description "秋季学期功能 / Fall semester features"
+gh label create "semester:spring" --color "98FB98" --description "春季学期功能 / Spring semester features"
+gh label create "event:fair" --color "FFD700" --description "活动展会相关 / Activity fair related"
+
+# 特殊标签 / Special Labels
+gh label create "good-first-issue" --color "7057FF" --description "适合新手的任务 / Good for newcomers"
+gh label create "help-wanted" --color "008672" --description "需要帮助 / Extra attention needed"
+gh label create "teacher-review" --color "FFA500" --description "需要教师审查 / Needs teacher review"
+gh label create "student-feedback" --color "87CEEB" --description "学生反馈 / Student feedback"
+gh label create "breaking-change" --color "FF0000" --description "破坏性变更 / Breaking changes"
+
+echo "所有标签创建完成！/ All labels created!"
+```
+
+### 运行脚本 / Run the Script
+
+```bash
+# 给脚本执行权限 / Make the script executable
+chmod +x create-labels.sh
+
+# 运行脚本 / Run the script
+./create-labels.sh
+```
+
+**注意 / Note:** 如果标签已存在，命令会失败。你可以添加 `--force` 标志来更新现有标签。
+*If a label already exists, the command will fail. You can add the `--force` flag to update existing labels.*
 
 ## 📖 使用示例 / Usage Examples
 
