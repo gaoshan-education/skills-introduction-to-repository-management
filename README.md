@@ -17,6 +17,11 @@ Remember, it's self-paced so feel free to take a break! ☕️
   - 如何添加自定义标签 / How to add custom labels
   - 标签最佳实践 / Label best practices
 
+- 🚀 [**快速入门：添加自定义标签 / Quick Start: Adding Custom Labels**](./LABELS_QUICKSTART.md)
+  - 快速创建推荐的标签 / Quickly create recommended labels
+  - 标签使用示例 / Label usage examples
+  - 搜索技巧 / Search tips
+
 ---
 
 &copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
