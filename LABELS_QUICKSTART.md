@@ -105,15 +105,30 @@ https://github.com/gaoshan-education/skills-introduction-to-repository-managemen
 
 ```bash
 # 1. 安装 GitHub CLI / Install GitHub CLI
-# macOS: brew install gh
-# Windows: choco install gh
-# Linux: See https://cli.github.com/
+# macOS: 
+brew install gh
+
+# Windows (选择一种方法 / Choose one method):
+# 方法 1: 使用 winget (Windows 11 或 Windows 10 最新版本 / Windows 11 or latest Windows 10)
+winget install --id GitHub.cli
+
+# 方法 2: 使用 Chocolatey (需要先安装 Chocolatey / Requires Chocolatey)
+choco install gh
+
+# 方法 3: 直接下载安装 / Direct download
+# 访问 / Visit: https://github.com/cli/cli/releases
+
+# Linux (Ubuntu/Debian):
+# See https://github.com/cli/cli/blob/trunk/docs/install_linux.md
 
 # 2. 登录 / Login
 gh auth login
 
 # 3. 进入你的仓库目录 / Navigate to your repository directory
-cd /path/to/your/repository
+# 例如 / Example:
+cd ~/projects/skills-introduction-to-repository-management
+# 或者 / Or:
+cd C:\Users\YourName\projects\your-repository
 ```
 
 ### 创建所有标签的脚本 / Script to Create All Labels
@@ -177,8 +192,18 @@ chmod +x create-labels.sh
 ./create-labels.sh
 ```
 
+### 更新现有标签 / Update Existing Labels
+
 **注意 / Note:** 如果标签已存在，命令会失败。你可以添加 `--force` 标志来更新现有标签。
 *If a label already exists, the command will fail. You can add the `--force` flag to update existing labels.*
+
+```bash
+# 更新现有标签示例 / Example of updating an existing label
+gh label create "priority:critical" --color "FF0000" --description "关键问题，需立即处理" --force
+
+# 或者在脚本中使用 / Or use in script
+gh label create "club:art" --color "FF69B4" --description "艺术俱乐部相关功能" --force
+```
 
 ## 📖 使用示例 / Usage Examples
 
